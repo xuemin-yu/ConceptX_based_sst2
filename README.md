@@ -2,12 +2,31 @@
 Analyzing Latent Concepts in Pre-trained Transformer Models on the SST2 dataset by using the ConceptX and NeuroX toolkits.
 
 ## Setting the environment
-The step for embedding extraction needs to set up the NeuroX environment using env_neurox.yml.
-```
-conda env create --file=env_neurox.yml
+### The step for embedding extraction needs to set up the NeuroX environment:
+1. Manual Installation for NeuroX
+``` 
+git clone https://github.com/fdalvi/NeuroX.git
 ```
 
-The step for clustering needs to set up a clustering environment using env_clustering.yml.
+2. Create a conda environment with python 3.8 for latest version of NeuroX
+```
+conda create -n neurox_pip python=3.8
+conda activate neurox_pip
+```
+
+3. Install the dependencies required to run the NeuroX toolkit
+``` 
+cd Neurox
+pip install -e .
+```
+
+4. Set the directory path back to the main directory and deactivate the environment
+```
+cd ..
+conda deactivate
+```
+
+### The step for clustering needs to set up a clustering environment using env_clustering.yml.
 ```
 conda env create --file=env_clustering.yml
 ```
