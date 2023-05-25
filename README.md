@@ -9,7 +9,7 @@ conda env create --file=env_neurox.yml
 
 The step for clustering needs to set up a clustering environment using env_clustering.yml.
 ```
-conda env create --file=clustering.yml
+conda env create --file=env_clustering.yml
 ```
 
 ## Tokenization, Sentence Filtering, and Vocabulary Size Calculation
