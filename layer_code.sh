@@ -1,13 +1,8 @@
 #!/bin/bash
-#SBATCH --time=10:00:00
-#SBATCH --account=def-emilios
-#SBATCH --mem=512G 
-#SBATCH --mail-type=ALL # 发送哪一种email通知：BEGIN,END,FAIL,ALL
-#SBATCH --mail-user=xm863858@dal.ca # 把通知发送到哪一个邮箱
 
 scriptDir=scripts
 inputPath=data # path to a sentence file
-input=input_1000.in #name of the sentence file
+input=input_100.in #name of the sentence file
 # model name or path to a finetuned model
 model="glue-cased-models"
 
@@ -21,9 +16,9 @@ mkdir ${outputDir}
 
 working_file=$input.tok.sent_len #do not change this
 
-# source activate neurox_pip
+source activate neurox_pip
 # 3. Extract layer-wise activations
-python neurox_extraction.py \
+python ${scriptDir}/neurox_extraction.py \
      --model_desc ${model} \
      --input_corpus ${working_file} \
      --output_file ${outputDir}/${working_file}.activations.json \
@@ -43,7 +38,7 @@ python ${scriptDir}/frequency_filter_data.py --input-file ${outputDir}/${working
 
 #7. Run clustering
 
-source activate clustering
+conda activate clustering
 
 mkdir ${outputDir}/results
 DATASETPATH=${outputDir}/${working_file}-layer${layer}_min_${minfreq}_max_${maxfreq}_del_${delfreq}-dataset.json

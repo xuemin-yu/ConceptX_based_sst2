@@ -1,10 +1,11 @@
 import argparse
 
+# import the module from the directory that is one level up
 import sys
-sys.path.append('NeuroX')
+sys.path.append("./NeuroX")
 
 
-import NeuroX.neurox.data.extraction.transformers_extractor as transformers_extractor
+from neurox.data.extraction.transformers_extractor import extract_representations
 
 
 def main():
@@ -23,7 +24,7 @@ def main():
 
     args = parser.parse_args()
 
-    positions = transformers_extractor.extract_representations(model_desc=args.model_desc,
+    extract_representations(model_desc=args.model_desc,
                                                        input_corpus=args.input_corpus,
                                                        output_file=args.output_file,
                                                        output_type=args.output_type,
@@ -34,4 +35,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

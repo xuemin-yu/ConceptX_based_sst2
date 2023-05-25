@@ -2,7 +2,7 @@
 
 scriptDir=scripts
 inputPath=data # path to a sentence file
-input=input_1000.in #name of the sentence file
+input=input_100.in #name of the sentence file
 # model name or path to a finetuned model
 model="glue-cased-models"
 

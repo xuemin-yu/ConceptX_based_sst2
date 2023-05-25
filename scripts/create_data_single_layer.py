@@ -9,9 +9,9 @@ from tqdm import tqdm
 # print(sys.path)
 
 import sys
-sys.path.append('NeuroX')
+sys.path.append('./NeuroX')
 
-import NeuroX.neurox.data.loader as data_loader
+import neurox.data.loader as data_loader
 # from NeuroX.neurox.data import loader as data_loader
 #from aux_classifier import data_loader
 
