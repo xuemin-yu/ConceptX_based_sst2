@@ -17,15 +17,9 @@ mkdir ${outputDir}
 working_file=$input.tok.sent_len #do not change this
 
 source activate neurox_pip
+
 # 3. Extract layer-wise activations
-python ${scriptDir}/neurox_extraction.py \
-     --model_desc ${model} \
-     --input_corpus ${working_file} \
-     --output_file ${outputDir}/${working_file}.activations.json \
-     --output_type json \
-     --decompose_layers \
-     --include_special_tokens \
-     --filter_layers ${layer} \
+python -m neurox.data.extraction.transformers_extractor --decompose_layers --filter_layers ${layer} --output_type json ${model} ${working_file} ${outputDir}/${working_file}.activations.json --include_special_tokens
 
 #4. Create a dataset file with word and sentence indexes
 python ${scriptDir}/create_data_single_layer.py --text-file ${working_file}.modified --activation-file ${outputDir}/${working_file}.activations-layer${layer}.json --output-prefix ${outputDir}/${working_file}-layer${layer}
