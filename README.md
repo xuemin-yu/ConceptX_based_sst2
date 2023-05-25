@@ -31,6 +31,11 @@ conda deactivate
 conda env create --file=env_clustering.yml
 ```
 
+### The step for CLS prediction needs to set up a explanation environment using env_explanation.yml.
+```
+conda env create --file=env_explanation.yml
+```
+
 ## Tokenization, Sentence Filtering, and Vocabulary Size Calculation
 **Run 'base_code.sh' for tokenization, sentence length filtering, and calculating vocabulary size**
 * Step1: Tokenize text with moses tokenizer
@@ -44,3 +49,5 @@ conda env create --file=env_clustering.yml
 * Step5: Create a dataset file with word and sentence indexes for a single layer
 * Step6: Filter the number of tokens to fit in the memory for clustering.
 * Step7: Run clustering
+
+
